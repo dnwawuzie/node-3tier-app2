@@ -23,7 +23,7 @@ phases:
       - echo Building the Docker image...
       - echo $IMAGE_URI
       - ls -ahl && cd api && ls -ahl && docker build -t $IMAGE_URI .
-#      - cd web && docker build -t $IMAGE_URI-web .
+      - cd web && docker build -t $IMAGE_URI-web .
 
   post_build:
     commands:
@@ -31,9 +31,9 @@ phases:
       - echo Build stage successfully completed on `date`
       - echo Pushing the Docker image...
       - docker push $IMAGE_URI
-#      - docker push $IMAGE_URI-web
+      - docker push $IMAGE_URI-web
       - printf '[{"name":"cortex-ai-container","imageUri":"%s"}]' "$IMAGE_URI" > images.json
-#      - printf '[{"name":"cortex-ai-container","imageUri":"%s"}]' "$IMAGE_URI-web" > image-web.json
+      - printf '[{"name":"cortex-ai-container","imageUri":"%s"}]' "$IMAGE_URI-web" > image-web.json
 
 # Include only the files required for your application to run.
 # Do not use recursively include artifacts from node_modules directory as it will include unnecessary packages
