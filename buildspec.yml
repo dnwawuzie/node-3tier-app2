@@ -31,7 +31,7 @@ phases:
       - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then exit 1; fi"
       - echo Build stage successfully completed on `date`
       - echo Pushing the Docker image...
-      - docker push $IMAGE_URI-api
+      - docker push $IMAGE_URI_API
       - docker push $IMAGE_URI
       - printf '[{"name":"cortex-ai-container","imageUri":"%s"}]' "$IMAGE_URI_API" > image-api.json
       - printf '[{"name":"cortex-ai-container","imageUri":"%s"}]' "$IMAGE_URI" > image-web.json
