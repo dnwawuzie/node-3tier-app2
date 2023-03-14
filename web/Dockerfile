@@ -1,5 +1,6 @@
 # Specify the base image
-FROM node:18.15-slim
+# FROM node:18.15-slim
+FROM public.ecr.aws/c0p3j0p8/node-base:latest
 
 # Set the working directory inside the container
 WORKDIR /app
